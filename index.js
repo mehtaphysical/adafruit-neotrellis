@@ -1,7 +1,7 @@
 const { spawn } = require('child_process');
 const EventEmitter = require('events');
 
-class NeoTrellis extends EventEmitter {
+module.exports = class NeoTrellis extends EventEmitter {
   constructor() {
     this.trellis = spawn('python3', [__dirname + '/index.py']);
 
