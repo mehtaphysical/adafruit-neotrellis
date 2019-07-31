@@ -3,6 +3,7 @@ const EventEmitter = require('events');
 
 module.exports = class NeoTrellis extends EventEmitter {
   constructor() {
+    super();
     this.trellis = spawn('python3', [__dirname + '/index.py']);
 
     trellis.stdout.on('data', data => {
