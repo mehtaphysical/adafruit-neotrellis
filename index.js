@@ -6,7 +6,7 @@ module.exports = class NeoTrellis extends EventEmitter {
     super();
     this.trellis = spawn('python3', [__dirname + '/index.py']);
 
-    trellis.stdout.on('data', data => {
+    this.trellis.stdout.on('data', data => {
       const number = data.toString().split(' ')[1].trim();
       trellisEvents.emit(`Button${number}`);
       trellisEvents.emit('press', { number });
@@ -14,6 +14,6 @@ module.exports = class NeoTrellis extends EventEmitter {
   }
 
   changeColor(index, r, g, b) {
-    trellis.stdin.write(`${index} ${r} ${g} ${b}\n`);
+    this.trellis.stdin.write(`${index} ${r} ${g} ${b}\n`);
   }
 }
