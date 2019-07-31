@@ -8,8 +8,8 @@ module.exports = class NeoTrellis extends EventEmitter {
 
     this.trellis.stdout.on('data', data => {
       const number = data.toString().split(' ')[1].trim();
-      trellisEvents.emit(`Button${number}`);
-      trellisEvents.emit('press', { number });
+      this.emit(`Button${number}`);
+      this.emit('press', { number });
     });
   }
 
