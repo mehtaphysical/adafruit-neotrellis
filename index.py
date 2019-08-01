@@ -22,6 +22,10 @@ for i in range(16):
 while True:
     trellis.sync()
     if select.select([sys.stdin,],[],[],0.0)[0]:
-        args = sys.stdin.readline().split()
+      while True:
+        line = sys.stdin.readline()
+        if not line:
+          break
+        args = line.split()
         trellis.pixels[int(args[0])] = (int(args[1]), int(args[2]), int(args[3]))
     time.sleep(.02)
